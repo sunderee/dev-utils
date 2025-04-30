@@ -1,6 +1,7 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 import { RootLayoutProps } from "@/types/ui";
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               {children}
             </main>
           </SidebarProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
