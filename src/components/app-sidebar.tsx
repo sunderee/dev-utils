@@ -12,6 +12,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    useSidebar
 } from "@/components/ui/sidebar";
 import { AppDestination } from "@/hooks/use-destination";
 
@@ -22,6 +23,7 @@ type SidebarDestination = {
 
 export function AppSidebar() {
     const { setDestination } = useDestinationContext();
+    const { setOpenMobile, isMobile } = useSidebar();
 
     const destinationTools: SidebarDestination[] = [
         {
@@ -44,7 +46,12 @@ export function AppSidebar() {
                         <SidebarMenu>
                             {destinationTools.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton onClick={() => setDestination(item.destination)}>
+                                    <SidebarMenuButton onClick={() => {
+                                        setDestination(item.destination);
+                                        if (isMobile) {
+                                            setOpenMobile(false);
+                                        }
+                                    }}>
                                         <span>{item.title}</span>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
