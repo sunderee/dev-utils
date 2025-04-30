@@ -1,13 +1,16 @@
 'use client';
 
-import { AppDestination, useDestination } from "@/hooks/use-destination";
+import { useDestinationContext } from "@/components/destination-provider";
+import { AppDestination } from "@/hooks/use-destination";
 import { JSX } from "react";
-import JsonMinify from "./json-minify/page";
+import JsonMinify from "./json/json-minify";
+import JsonPrettify from "./json/json-prettify";
 
 export default function Home() {
-  const { destination } = useDestination();
+  const { destination } = useDestinationContext();
   const destinationToPageMap: Record<AppDestination, JSX.Element> = {
-    'json-minify': <JsonMinify />
+    'json-minify': <JsonMinify />,
+    'json-prettify': <JsonPrettify />
   }
 
   return destinationToPageMap[destination]

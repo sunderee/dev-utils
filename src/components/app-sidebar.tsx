@@ -1,5 +1,6 @@
 'use client';
 
+import { useDestinationContext } from "@/components/destination-provider";
 import {
     Sidebar,
     SidebarContent,
@@ -12,7 +13,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { AppDestination, useDestination } from "@/hooks/use-destination";
+import { AppDestination } from "@/hooks/use-destination";
 
 type SidebarDestination = {
     destination: AppDestination;
@@ -20,12 +21,16 @@ type SidebarDestination = {
 }
 
 export function AppSidebar() {
-    const { setDestination } = useDestination();
+    const { setDestination } = useDestinationContext();
 
     const destinationTools: SidebarDestination[] = [
         {
             destination: 'json-minify',
             title: 'JSON Minify',
+        },
+        {
+            destination: 'json-prettify',
+            title: 'JSON Prettify',
         }
     ];
 
@@ -39,7 +44,7 @@ export function AppSidebar() {
                         <SidebarMenu>
                             {destinationTools.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild onClick={() => setDestination(item.destination)}>
+                                    <SidebarMenuButton onClick={() => setDestination(item.destination)}>
                                         <span>{item.title}</span>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>

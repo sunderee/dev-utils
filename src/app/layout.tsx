@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import { DestinationProvider } from "@/components/destination-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
@@ -26,11 +27,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <SidebarProvider>
-            <AppSidebar />
-            <main className="w-full max-w-full p-6 min-h-screen">
-              <SidebarTrigger />
-              {children}
-            </main>
+            <DestinationProvider>
+              <AppSidebar />
+              <main className="w-full max-w-full p-6 min-h-screen">
+                <SidebarTrigger />
+                {children}
+              </main>
+            </DestinationProvider>
           </SidebarProvider>
           <Toaster />
         </ThemeProvider>
