@@ -10,7 +10,5 @@ export default function Home() {
     'json-minify': <JsonMinify />
   }
 
-  return <div className="w-full">
-    {destinationToPageMap[destination]}
-  </div>
+  return destinationToPageMap[destination]
 }

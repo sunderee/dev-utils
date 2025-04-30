@@ -7,7 +7,10 @@ export function useJSONMinify(input: string): string {
         try {
             const minified = JSON.stringify(JSON.parse(input));
             setOutput(minified);
-        } catch (_) {
+        } catch (error) {
+            if (process.env.NODE_ENV !== 'production') {
+                console.error(error);
+            }
             setOutput('');
         }
     }, [input]);

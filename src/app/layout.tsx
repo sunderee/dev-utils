@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <SidebarProvider>
             <AppSidebar />
-            <main>
+            <main className="w-full max-w-full p-6 min-h-screen">
               <SidebarTrigger />
               {children}
             </main>
