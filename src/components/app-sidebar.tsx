@@ -25,7 +25,7 @@ export function AppSidebar() {
     const { setDestination } = useDestinationContext();
     const { setOpenMobile, isMobile } = useSidebar();
 
-    const destinationTools: SidebarDestination[] = [
+    const jsonToolDestination: SidebarDestination[] = [
         {
             destination: 'json-minify',
             title: 'JSON Minify',
@@ -40,15 +40,48 @@ export function AppSidebar() {
         }
     ];
 
+    const xmlToolDestinations: SidebarDestination[] = [
+        {
+            destination: 'xml-minify',
+            title: 'XML Minify',
+        },
+        {
+            destination: 'xml-prettify',
+            title: 'XML Prettify',
+        }
+    ]
+
     return (
         <Sidebar>
             <SidebarHeader />
             <SidebarContent>
+                {/* JSON tools */}
                 <SidebarGroup>
-                    <SidebarGroupLabel>Tools</SidebarGroupLabel>
+                    <SidebarGroupLabel>JSON</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {destinationTools.map((item) => (
+                            {jsonToolDestination.map((item) => (
+                                <SidebarMenuItem key={item.title}>
+                                    <SidebarMenuButton onClick={() => {
+                                        setDestination(item.destination);
+                                        if (isMobile) {
+                                            setOpenMobile(false);
+                                        }
+                                    }}>
+                                        <span>{item.title}</span>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            ))}
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+
+                {/* XML tools */}
+                <SidebarGroup>
+                    <SidebarGroupLabel>XML</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {xmlToolDestinations.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton onClick={() => {
                                         setDestination(item.destination);
