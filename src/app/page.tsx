@@ -6,13 +6,15 @@ import { JSX } from "react";
 import JsonMinify from "./json/json-minify";
 import JsonPrettify from "./json/json-prettify";
 import JsonValidate from "./json/json-validate";
+import XmlMinify from "./xml/xml-minify";
 
 export default function Home() {
   const { destination } = useDestinationContext();
   const destinationToPageMap: Record<AppDestination, JSX.Element> = {
     'json-minify': <JsonMinify />,
     'json-prettify': <JsonPrettify />,
-    'json-validate': <JsonValidate />
+    'json-validate': <JsonValidate />,
+    'xml-minify': <XmlMinify />
   }
 
   return destinationToPageMap[destination]
