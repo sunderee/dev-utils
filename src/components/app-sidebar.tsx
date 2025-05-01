@@ -44,6 +44,10 @@ export function AppSidebar() {
         {
             destination: 'xml-minify',
             title: 'XML Minify',
+        },
+        {
+            destination: 'xml-prettify',
+            title: 'XML Prettify',
         }
     ]
 
