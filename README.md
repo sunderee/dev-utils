@@ -26,6 +26,10 @@ docker build --tag=dev-utils .
 docker run --name=dev-utils --publish=3000:3000 dev-utils
 ```
 
+## Contribution
+
+This project is under active development. I add tools as I need them. If you'd like to see something added, please raise an issue. All contributions, suggestions, feedback, and grievances are welcome.
+
 ## License
 
 Project is open sourced under GNU GPLv3 license. Read [LICENSE](./LICENSE) file for more information.
