@@ -8,6 +8,9 @@ export function useJSONValidate(input: string): boolean {
             JSON.parse(input);
             setIsValid(true);
         } catch (error) {
+            if (process.env.NODE_ENV !== 'production') {
+                console.error(error);
+            }
             setIsValid(false);
         }
     }, [input]);

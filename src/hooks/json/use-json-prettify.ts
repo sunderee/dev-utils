@@ -9,7 +9,10 @@ export function useJSONPrettify(input: string, tabWidth: number = 2) {
             const prettified = JSON.stringify(parsed, null, tabWidth);
             setOutput(prettified);
         } catch (error) {
-            console.error(error);
+            if (process.env.NODE_ENV !== 'production') {
+                console.error(error);
+            }
+            setOutput('');
         }
     }, [input, tabWidth]);
 
