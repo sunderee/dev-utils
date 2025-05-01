@@ -19,7 +19,6 @@ export default function JsonMinify() {
             <Textarea
                 id="json-input"
                 placeholder="Paste your JSON here..."
-                // className="min-h-[200px] w-full font-mono text-sm"
                 value={input}
                 onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setInput(event.target.value)}
             />

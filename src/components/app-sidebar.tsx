@@ -33,6 +33,10 @@ export function AppSidebar() {
         {
             destination: 'json-prettify',
             title: 'JSON Prettify',
+        },
+        {
+            destination: 'json-validate',
+            title: 'JSON Validate',
         }
     ];
 
