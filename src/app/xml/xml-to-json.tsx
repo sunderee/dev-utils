@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useXMLToJSON } from "@/hooks/xml/use-xml-to-json";
+import { useXMLToJSON } from "@/hooks/file-converters/use-xml-to-json";
 import { useState } from "react";
 import { toast } from "sonner";
 
