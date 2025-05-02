@@ -51,6 +51,13 @@ export function AppSidebar() {
         }
     ]
 
+    const fileToolDestinations: SidebarDestination[] = [
+        {
+            destination: 'xml-to-json',
+            title: "XML to JSON"
+        }
+    ]
+
     return (
         <Sidebar>
             <SidebarHeader />
@@ -82,6 +89,27 @@ export function AppSidebar() {
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {xmlToolDestinations.map((item) => (
+                                <SidebarMenuItem key={item.title}>
+                                    <SidebarMenuButton onClick={() => {
+                                        setDestination(item.destination);
+                                        if (isMobile) {
+                                            setOpenMobile(false);
+                                        }
+                                    }}>
+                                        <span>{item.title}</span>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            ))}
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+
+                {/* File converter tools */}
+                <SidebarGroup>
+                    <SidebarGroupLabel>File converters</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {fileToolDestinations.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton onClick={() => {
                                         setDestination(item.destination);
