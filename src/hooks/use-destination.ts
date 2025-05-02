@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type JSONDestination = 'json-minify' | 'json-prettify' | 'json-validate';
-type XMLDestination = 'xml-minify' | 'xml-prettify';
+type XMLDestination = 'xml-minify' | 'xml-prettify' | 'xml-to-json';
 export type AppDestination = JSONDestination | XMLDestination;
 
 export function useDestination() {

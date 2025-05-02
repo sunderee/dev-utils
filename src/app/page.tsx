@@ -8,6 +8,7 @@ import JsonPrettify from "./json/json-prettify";
 import JsonValidate from "./json/json-validate";
 import XmlMinify from "./xml/xml-minify";
 import XmlPrettify from "./xml/xml-prettify";
+import XMLToJSON from "./xml/xml-to-json";
 
 export default function Home() {
   const { destination } = useDestinationContext();
@@ -19,7 +20,8 @@ export default function Home() {
 
     // XML
     'xml-minify': <XmlMinify />,
-    'xml-prettify': <XmlPrettify />
+    'xml-prettify': <XmlPrettify />,
+    'xml-to-json': <XMLToJSON />
   }
 
   return destinationToPageMap[destination]

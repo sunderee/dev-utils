@@ -48,6 +48,10 @@ export function AppSidebar() {
         {
             destination: 'xml-prettify',
             title: 'XML Prettify',
+        },
+        {
+            destination: 'xml-to-json',
+            title: "XML to JSON"
         }
     ]
 
