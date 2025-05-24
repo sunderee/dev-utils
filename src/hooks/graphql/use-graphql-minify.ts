@@ -4,7 +4,7 @@ export function useGraphQLMinify(input: string): string {
     const [output, setOutput] = useState<string>('');
 
     useEffect(() => {
-        let result = input
+        const result = input
             .replaceAll('\n', '')
             .replaceAll(/\s\s+/g, ' ')
             .replaceAll(/\{\s/g, '{')
@@ -16,7 +16,7 @@ export function useGraphQLMinify(input: string): string {
             .replaceAll(/\}\s\}/g, '}}')
             .replaceAll(/\,\s/g, ',')
         setOutput(result);
-    });
+    }, [input]);
 
     return output;
 }
