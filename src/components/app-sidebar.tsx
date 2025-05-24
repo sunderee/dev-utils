@@ -51,6 +51,13 @@ export function AppSidebar() {
         }
     ]
 
+    const graphqlToolDestinations: SidebarDestination[] = [
+        {
+            destination: 'graphql-minify',
+            title: 'GraphQL Minify',
+        }
+    ]
+
     const fileToolDestinations: SidebarDestination[] = [
         {
             destination: 'xml-to-json',
@@ -89,6 +96,27 @@ export function AppSidebar() {
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {xmlToolDestinations.map((item) => (
+                                <SidebarMenuItem key={item.title}>
+                                    <SidebarMenuButton onClick={() => {
+                                        setDestination(item.destination);
+                                        if (isMobile) {
+                                            setOpenMobile(false);
+                                        }
+                                    }}>
+                                        <span>{item.title}</span>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            ))}
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+
+                {/* GraphQL tools */}
+                <SidebarGroup>
+                    <SidebarGroupLabel>GraphQL</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {graphqlToolDestinations.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton onClick={() => {
                                         setDestination(item.destination);

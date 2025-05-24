@@ -3,6 +3,7 @@
 import { useDestinationContext } from "@/components/destination-provider";
 import { AppDestination } from "@/hooks/use-destination";
 import { JSX } from "react";
+import GraphQLMinify from "./graphql/graphql-minify";
 import JsonMinify from "./json/json-minify";
 import JsonPrettify from "./json/json-prettify";
 import JsonValidate from "./json/json-validate";
@@ -21,7 +22,10 @@ export default function Home() {
     // XML
     'xml-minify': <XmlMinify />,
     'xml-prettify': <XmlPrettify />,
-    'xml-to-json': <XMLToJSON />
+    'xml-to-json': <XMLToJSON />,
+
+    // GraphQL
+    'graphql-minify': <GraphQLMinify />
   }
 
   return destinationToPageMap[destination]
